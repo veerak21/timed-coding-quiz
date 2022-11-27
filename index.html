@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div id="highscore">
+            View Highscores
+        </div>
+        <p id="timer">Time: 0</p>
+    </header>
+
+    <!-- Welcome Page -->
+    <div id ="container" class="container">
+        <div id="welcome-page" class="welcome-page">
+            <h1 class="welcome">Welcome to the Coding Quiz!</h1>
+            <p><h3>Answer the following coding questions within the time limit.</br>However, any incorrect answer would come with a ten second penalty!</h3></p>
+        </div>
+
+        <!-- End Page -->
+        <div id="end-page" class="end hide">
+            <h2 class="end">All Done!</h2>
+            <p id="score"></p>
+            <p>Enter Initials:
+                <input type="text" placeholder="Your initials" id="initials" />
+                <button id="submit-btn" type="button">Submit</button>
+            </p>
+        </div>
+
+        <!-- Questions -->
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="buttons">
+                <button id='btn1' class="btn">Answer 1</button>
+                <button id='btn2' class="btn">Answer 2</button>
+                <button id='btn3' class="btn">Answer 3</button>
+                <button id='btn4' class="btn">Answer 4</button>
+            </div>
+        </div>
+        <div id="display" class="correct hide"></div>
+        <div id="display2" class="incorrect hide"></div>
+    </div>
+    <div class="controls">
+        <button id="start-btn" class="start-btn" type="submit">Start Quiz</button>
+    </div>
+    </div>
+
+    <!-- Score Page -->
+    <div id="high-scores" class="score-card hide">
+        <h1>High Scores</h1>
+        <div id="scores-list" class="scores">
+            
+    
+            </br>
+            </br>
+    
+            <ol id="newScores"></ol>
+    
+            </br>
+            </br>
+    
+            <a href="index.html"><button id="back">Go Back</button></a>
+            <button id="clear">Clear Highscores</button>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
