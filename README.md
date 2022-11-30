@@ -12,4 +12,18 @@ Using this project will give new developers an idea of the fundamnetal principle
 ## Credits:
 Thanks to Instructor Mahyar Mottaghi Zadeh for providing relevent training and rescources for this project.
 
-## Website URL and image:
+## Website URL and Screenshots:
+
+https://veerak21.github.io/timed-coding-quiz/ 
+
+
+![screenshot-of-applicaton](./assets/images/img1.png)
+
+
+
+![screenshot-of-applicaton](./assets/images/img2.png)
+
+
+
+![screenshot-of-applicaton](./assets/images/img3.png)
+
