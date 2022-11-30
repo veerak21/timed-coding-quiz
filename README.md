@@ -17,13 +17,21 @@ Thanks to Instructor Mahyar Mottaghi Zadeh for providing relevent training and r
 https://veerak21.github.io/timed-coding-quiz/ 
 
 
+Welcome page screenshot.
+
 ![screenshot-of-applicaton](./assets/images/img1.png)
 
 
 
+
+Screenshot showing questions with multiple choices answers.
+
 ![screenshot-of-applicaton](./assets/images/img2.png)
 
 
+
+
+Screenshot showing the highscores.
 
 ![screenshot-of-applicaton](./assets/images/img3.png)
 
