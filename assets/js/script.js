@@ -28,7 +28,7 @@ var questions = [{
 // variables to reference DOM elements
 var timerEl = document.getElementById("timer");
 var startButton = document.getElementById('start-btn')
-var answerButtonsElement = document.getElementById('answer-buttons')
+var answerButtonsEl = document.getElementById('answer-buttons')
 var submitButton = document.getElementById('submit-btn')
 var answer1 = document.getElementById("btn1");
 var answer2 = document.getElementById("btn2");
@@ -36,13 +36,13 @@ var answer3 = document.getElementById("btn3");
 var answer4 = document.getElementById("btn4");
 
 //questions
-var questionContainerElement = document.getElementById('question-container')
-var questionElement = document.getElementById('question')
+var questionContainerEl = document.getElementById('question-container')
+var questionEl = document.getElementById('question')
 
 //page elements
-var welcomePageElements = document.getElementById('welcome-page')
-var endGameElements = document.getElementById('end-page')
-var scoreElement = document.getElementById('score')
+var welcomePageEl = document.getElementById('welcome-page')
+var endGameEl = document.getElementById('end-page')
+var scoreEl = document.getElementById('score')
 var displayEl = document.getElementById('display')
 var displayEl2 = document.getElementById('display2')
 
@@ -52,6 +52,8 @@ var scoresEl = document.getElementById('high-scores')
 var newScore = document.getElementById('newScores')
 var viewScoreList = document.getElementById('highscore')
 var containerEl = document.getElementById('container')
+
+let questionShuffle; 
 
 
 var questionCounter = 0;
@@ -70,9 +72,10 @@ function countDown() {
         }
     }
 
-var createQuestionElement = function(index) {
 
-    var currentQuestion = questions[questionCounter]
+var createQuestionEl = function(questions) {
+
+    var currentQuestion = questionShuffle[questionCounter]
     question.textContent = currentQuestion.question;
 
     answer1.textContent = currentQuestion.choices[0]
@@ -93,35 +96,36 @@ var checkAnswer = function(event) {
     } else {
         displayEl.classList.add('hide')
         displayEl2.textContent = "------Wrong!------"
-        timeLeft -= 15;
+        timeLeft -= 10;
     }
     
     questionCounter++;
     if(questionCounter === questions.length){
         endGame();
     } else {
-    createQuestionElement();
+    createQuestionEl();
 }
 }
 
 var startGame = function(){
     timeInterval = setInterval(countDown, 1000);
     startButton.classList.add('hide')
-    welcomePageElements.classList.add('hide')
-    questionContainerElement.classList.remove('hide')
+    welcomePageEl.classList.add('hide')
+    questionContainerEl.classList.remove('hide')
     countDown();
+    questionShuffle = questions.sort(() => Math.random() - .5);
+
     // setNextQuestion()
-    createQuestionElement();
+    createQuestionEl(questionShuffle);
     }
 
 var endGame = function(){
     clearInterval(timeInterval);
-    questionContainerElement.classList.add('hide')
-       endGameElements.classList.remove('hide')
-       scoreElement.textContent = "Your final score is " + timeLeft;
+    questionContainerEl.classList.add('hide')
+       endGameEl.classList.remove('hide')
+       scoreEl.textContent = "Your final score is " + timeLeft;
        timerEl.classList.add('hide')
-    
-
+       
        setTimeout(function() {
            displayEl.setAttribute("class", "hide");
        }, 1000);
@@ -146,7 +150,7 @@ var endGame = function(){
         }
         console.log(id)
         scoresEl.classList.remove('hide');
-        endGameElements.classList.add('hide');
+        endGameEl.classList.add('hide');
         containerEl.classList.add('hide')
         viewScoreList.classList.add('hide')
         highscores.push(newScore);
@@ -179,8 +183,8 @@ var endGame = function(){
 
 function viewHighScores(){
     startButton.classList.add('hide')
-    welcomePageElements.classList.add('hide')
-    questionContainerElement.classList.add('hide')
+    welcomePageEl.classList.add('hide')
+    questionContainerEl.classList.add('hide')
     displayEl.classList.add('hide') 
     displayEl2.classList.add('hide')
     timerEl.classList.add('hide')
