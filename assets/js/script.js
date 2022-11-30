@@ -57,7 +57,8 @@ let questionShuffle;
 
 
 var questionCounter = 0;
-var timeLeft = questions.length * 15;     
+var timeLeft = questions.length * 15;
+
                                               
 // Timer countdown from 75 seconds
 function countDown() {
@@ -86,6 +87,7 @@ var createQuestionEl = function(questions) {
     
 }
 
+
 var checkAnswer = function(event) {
     var correctAnswer = questions[questionCounter].answer
     var currentAnswer = event.target.textContent   
@@ -103,6 +105,12 @@ var checkAnswer = function(event) {
        
         timeLeft -= 10;
     }
+    setTimeout(function() {
+        displayEl.setAttribute("class", "hide");
+    }, 500);
+    setTimeout(function() {
+        displayEl2.setAttribute("class", "hide");
+    }, 500);
     
     questionCounter++;
     
@@ -113,6 +121,7 @@ var checkAnswer = function(event) {
     createQuestionEl();
     
 }
+
 }
 
 var startGame = function(){
@@ -135,17 +144,8 @@ var endGame = function(){
        endGameEl.classList.remove('hide')
        scoreEl.textContent = "Your final score is " + timeLeft;
        timerEl.classList.add('hide')
-       
-       setTimeout(function() {
-           displayEl.setAttribute("class", "hide");
-       }, 1000);
-       setTimeout(function() {
-           displayEl2.setAttribute("class", "hide");
-       }, 1000);
        highScore();
   }
-
-
   function highScore(){
     submitButton.addEventListener("click", function(event) {
         

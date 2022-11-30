@@ -94,20 +94,22 @@ margin-bottom: 15px;
 }
 
 
-.correct {
+#display {
   width: 100%;
   font-size: 25px;
   font-weight: bold;
   margin-top: 10px;
   text-align: center;
+  
 }
 
-.incorrect {
+#display2 {
   width: 100%;
   font-size: 25px;
   font-weight: bold;
   margin-top: 10px;
   text-align: center;
+  
 }
 
 .end {
