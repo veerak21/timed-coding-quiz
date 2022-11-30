@@ -82,28 +82,36 @@ var createQuestionEl = function(questions) {
     answer2.textContent = currentQuestion.choices[1]
     answer3.textContent = currentQuestion.choices[2]
     answer4.textContent = currentQuestion.choices[3]
+    
+    
 }
 
 var checkAnswer = function(event) {
     var correctAnswer = questions[questionCounter].answer
     var currentAnswer = event.target.textContent   
+    
     displayEl.classList.remove('hide') 
     displayEl2.classList.remove('hide')
     
     if (currentAnswer === correctAnswer) {
         displayEl2.classList.add('hide')
         displayEl.textContent = "------Correct!------"
+        
     } else {
         displayEl.classList.add('hide')
         displayEl2.textContent = "------Wrong!------"
+       
         timeLeft -= 10;
     }
     
     questionCounter++;
+    
     if(questionCounter === questions.length){
         endGame();
     } else {
+        
     createQuestionEl();
+    
 }
 }
 
@@ -117,6 +125,8 @@ var startGame = function(){
 
     // setNextQuestion()
     createQuestionEl(questionShuffle);
+    
+    
     }
 
 var endGame = function(){
